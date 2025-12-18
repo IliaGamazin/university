@@ -25,7 +25,7 @@ public class UniversityCommands {
     @ShellMethod(key = "Show", value = "Display the department's statistics")
     public String showDepartmentStatistics(String arg, String suffix) {
         if (suffix == null || !suffix.equals("statistics")) {
-            System.err.println("Invalid command format. Did you mean 'show {department_name} statistics'?");
+            return "Invalid command format. Did you mean 'show {department_name} statistics'?";
         }
         return service.getStatistics(arg);
     }
