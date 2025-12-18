@@ -12,20 +12,20 @@ docker compose -up -d
 
 ## How to use
 
-1. User Input: Who is head of department {department_name}
-   Answer: Head of {department_name} department is {head_of_department_name}
+1. User Input: Who is head of department {department_name}<br>
+   Answer: Head of {department_name} department is {head_of_department_name}<br>
 
-2. User Input: Show {department_name} statistics.
-   Answer: assistans - {assistams_count}.
-   associate professors - {associate_professors_count}
-   professors -{professors_count}
+2. User Input: Show {department_name} statistics.<br>
+   Answer: assistans - {assistams_count}.<br>
+   associate professors - {associate_professors_count}<br>
+   professors -{professors_count}<br>
 
-3. User Input: Show the average salary for the department {department_name}.
-   Answer: The average salary of {department_name} is {average_salary}
+3. User Input: Show the average salary for the department {department_name}.<br>
+   Answer: The average salary of {department_name} is {average_salary}<br>
 
-4. User Input: Show count of employee for {department_name}.
-   Answer: {employee_count}
+4. User Input: Show count of employee for {department_name}.<br>
+   Answer: {employee_count}<br>
 
-5. User Input: Global search by {template}.
-   Example: Global search by van
-   Answer: Ivan Petrenko, Petro Ivanov
+5. User Input: Global search by {template}.<br>
+   Example: Global search by van<br>
+   Answer: Ivan Petrenko, Petro Ivanov<br>
