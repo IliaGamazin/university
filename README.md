@@ -1,7 +1,7 @@
 ## How to Run
 
 ```bash
-docker compose -up -d
+docker compose up -d
 ```
 
 <strong>Note that for input parameters, consisting of more than one word (e.g. Applied Mathematics) Your input should be enclosed in double quotes.</strong>
