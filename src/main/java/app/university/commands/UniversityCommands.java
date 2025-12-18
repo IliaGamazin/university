@@ -27,7 +27,7 @@ public class UniversityCommands {
         if (suffix == null || !suffix.equals("statistics")) {
             System.err.println("Invalid command format. Did you mean 'show {department_name} statistics'?");
         }
-        return "Showing statistics of " + arg + suffix;
+        return service.getStatistics(arg);
     }
 
     @ShellMethod(

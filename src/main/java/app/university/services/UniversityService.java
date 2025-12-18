@@ -4,9 +4,14 @@ import app.university.entities.Department;
 import app.university.entities.Lector;
 import app.university.repositories.DepartmentRepository;
 import app.university.repositories.LectorRepository;
+import app.university.utils.Degree;
+import app.university.utils.DegreeCount;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Service
@@ -25,6 +30,21 @@ public class UniversityService {
             .orElseThrow();
 
         return department.getHead().getName();
+    }
+
+    public String getStatistics(String name) {
+        List<DegreeCount> stats = departmentRepository.getDepartmentStatistics(name);
+
+        Map<Degree, Long> countsMap = stats.stream()
+            .collect(Collectors.toMap(DegreeCount::degree, DegreeCount::count));
+
+        return Arrays.stream(Degree.values())
+            .map(degree -> {
+                String label = degree.toString().toLowerCase().replace("_", " ");
+                Long count = countsMap.getOrDefault(degree, 0L);
+                return label + "s - " + count;
+            })
+            .collect(Collectors.joining("\n"));
     }
 
     public Double getAverageSalary(String name) {

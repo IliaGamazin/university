@@ -1,6 +1,7 @@
 package app.university.repositories;
 
 import app.university.entities.Department;
+import app.university.utils.DegreeCount;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.EntityGraph.*;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,6 +16,12 @@ public interface DepartmentRepository extends JpaRepository<Department, Long> {
     Optional<Department> findByNameIgnoreCase(String name);
 
     List<Department> findAllByNameContainingIgnoreCase(String name);
+
+    @Query("SELECT new app.university.utils.DegreeCount(e.degree, COUNT(e)) " +
+        "FROM Department d JOIN d.employees e " +
+        "WHERE d.name = :name " +
+        "GROUP BY e.degree")
+    List<DegreeCount> getDepartmentStatistics(@Param("name") String name);
 
     @Query("SELECT AVG(e.salary) FROM Department d JOIN d.employees e WHERE d.name = :name")
     Optional<Double> getAverageSalary(@Param("name") String name);
