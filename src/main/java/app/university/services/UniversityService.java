@@ -30,13 +30,13 @@ public class UniversityService {
     public Double getAverageSalary(String name) {
         return departmentRepository
             .getAverageSalary(name)
-            .orElseThrow();
+            .orElse(0.0);
     }
 
     public Long getEmployeeCount(String name) {
         return departmentRepository
             .countEmployeesByName(name)
-            .orElseThrow();
+            .orElse(0L);
     }
 
     public String getGlobalSearchResults(String substring) {

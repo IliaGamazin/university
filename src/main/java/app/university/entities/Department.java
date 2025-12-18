@@ -5,6 +5,10 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
+@NamedEntityGraph(
+    name = "Department.head",
+    attributeNodes = @NamedAttributeNode("head")
+)
 public class Department {
     @Id
     private Long id;
@@ -12,7 +16,7 @@ public class Department {
     @Column(unique = true, nullable = false)
     private String name;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     @JoinColumn(name = "head_id")
     private Lector head;
 

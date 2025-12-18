@@ -8,7 +8,7 @@ CREATE TABLE lector (
 CREATE TABLE department (
     id BIGINT PRIMARY KEY,
     name VARCHAR(255) NOT NULL UNIQUE,
-    head_id BIGINT,
+    head_id BIGINT NOT NULL,
     CONSTRAINT fk_department_head FOREIGN KEY (head_id) REFERENCES lector(id)
 );
 
